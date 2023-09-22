@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 
 from country import get_country
-from season import get_seasons
+from season import get_seasons, get_recommendations
 
 app = FastAPI()
 
@@ -25,7 +25,10 @@ def seasons(country: str, season: str):
             "options": season_options,
         }
 
+    recommendations = get_recommendations(matching_country, matching_season)
+
     return {
         "country": matching_country,
-        "season": season,
+        "season": matching_season,
+        "recommendations": recommendations
     }
