@@ -7,4 +7,4 @@ def get_matching_seasons(country: str):
     seasons_response = generate_response_from_prompt(prompt)
     seasons_list = seasons_response.split(', ')
 
-    return seasons_list
+    return [season.lower() for season in seasons_list]
