@@ -9,7 +9,7 @@ app = FastAPI()
 
 
 @app.get("/")
-def seasons(country: str, season: str):
+async def seasons(country: str, season: str):
     # Intercept error if no country or season and standardize the response
 
     matching_country, country_options = get_matching_country(country)
