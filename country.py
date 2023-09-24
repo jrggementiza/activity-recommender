@@ -3,7 +3,7 @@ from typing import Tuple, List
 from pycountry import countries
 
 
-def get_matching_country(country: str) -> Tuple[str, List[str | None]]:
+def get_matching_country(country: str):
     result_country = None
     result_options = []
     # TODO: Gracefully handle LookupError for typos or spacing
