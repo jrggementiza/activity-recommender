@@ -24,14 +24,19 @@ async def seasons(country: str = "", season: str = ""):
 
     matching_country = matching_country.lower()
 
-    seasons_list: list = get_matching_seasons(matching_country)
+    seasons_list, error_message = get_matching_seasons(matching_country)
+    if error_message:
+        return error_message
+
     if season not in seasons_list:
         return {
             "message": f"Country {matching_country} has no season {season}. Please choose from the following.",
             "options": seasons_list,
         }
 
-    recommendations = get_recommendations(matching_country, season)
+    recommendations, error_message = get_recommendations(matching_country, season)
+    if error_message:
+        return error_message
 
     return {
         "country": matching_country,

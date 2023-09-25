@@ -2,6 +2,9 @@ from utils import generate_response_from_prompt
 
 
 def get_recommendations(country: str, season: str):
+    recommendations_list = []
+    error_message = {}
+
     prompt = f"""
         Provide recommended activities you can do in {country} during the {season} season.
         Format recommendations so that it is just sentences seperated by a comma
@@ -20,6 +23,12 @@ def get_recommendations(country: str, season: str):
         - Visit Akihabara if in Japan
     """
 
-    response = generate_response_from_prompt(prompt, 100)
-    recommendations_list = response.split(", ")
-    return recommendations_list
+    try:
+        response = generate_response_from_prompt(prompt, 100)
+        recommendations_list = response.split(", ")
+    except Exception as e:
+        error_message = {
+            "message": e._message,
+        }
+
+    return (recommendations_list, error_message)
