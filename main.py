@@ -9,7 +9,7 @@ app = FastAPI()
 
 
 @app.get("/")
-async def seasons(country: str = "", season: str = ""):
+async def activities(country: str = "", season: str = ""):
     if not country or not season:
         return {
             "message": "Valid country and season both required.",
