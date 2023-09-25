@@ -16,6 +16,8 @@ async def seasons(country: str = "", season: str = ""):
             "detail": "/?country=country&season=season"
         }
 
+    country, season = country.lower(), season.lower()
+
     matching_country, country_options = get_matching_country(country)
     if not matching_country:
         return {
@@ -23,7 +25,8 @@ async def seasons(country: str = "", season: str = ""):
             "options": country_options,
         }
 
-    # TODO: Handle typecase formatting
+    matching_country = matching_country.lower()
+
     seasons_list: list = get_matching_seasons(matching_country)
     if season not in seasons_list:
         return {
