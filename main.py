@@ -9,8 +9,12 @@ app = FastAPI()
 
 
 @app.get("/")
-async def seasons(country: str, season: str):
-    # Intercept error if no country or season and standardize the response
+async def seasons(country: str = "", season: str = ""):
+    if not country or not season:
+        return {
+            "message": "Valid country and season both required.",
+            "detail": "/?country=country&season=season"
+        }
 
     matching_country, country_options = get_matching_country(country)
     if not matching_country:
