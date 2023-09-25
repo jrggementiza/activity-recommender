@@ -18,12 +18,9 @@ async def seasons(country: str = "", season: str = ""):
 
     country, season = country.lower(), season.lower()
 
-    matching_country, country_options = get_matching_country(country)
-    if not matching_country:
-        return {
-            "message": f"Country {country} unclear. Is it any of the following?",
-            "options": country_options,
-        }
+    matching_country, error_message = get_matching_country(country)
+    if error_message:
+        return error_message
 
     matching_country = matching_country.lower()
 
