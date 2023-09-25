@@ -13,7 +13,7 @@ async def seasons(country: str = "", season: str = ""):
     if not country or not season:
         return {
             "message": "Valid country and season both required.",
-            "detail": "/?country=country&season=season"
+            "detail": "/?country=country&season=season",
         }
 
     country, season = country.lower(), season.lower()
@@ -36,5 +36,5 @@ async def seasons(country: str = "", season: str = ""):
     return {
         "country": matching_country,
         "season": season,
-        "recommendations": recommendations
+        "recommendations": recommendations,
     }

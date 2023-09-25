@@ -21,5 +21,5 @@ def get_recommendations(country: str, season: str):
     """
 
     response = generate_response_from_prompt(prompt, 100)
-    recommendations_list = response.split(', ')
+    recommendations_list = response.split(", ")
     return recommendations_list

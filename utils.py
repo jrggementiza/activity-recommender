@@ -11,7 +11,7 @@ def generate_response_from_prompt(prompt, max_token=50) -> str:
         model="gpt-3.5-turbo-instruct",
         prompt=prompt,
         max_tokens=max_token,
-        temperature=0.7
+        temperature=0.7,
     )
 
     return response.choices[0].text.strip()
