@@ -20,7 +20,7 @@ def get_matching_country(country: str):
     except LookupError:
         error_message = {
             "message": f"Country {country} not clear.",
-            "options": "Make sure no typos or extra spaces.",
+            "detail": "Make sure no typos or extra spaces.",
         }
 
     # Use Fuzzy Search if not Country Code
@@ -37,7 +37,7 @@ def get_matching_country(country: str):
 
     error_message = {
         "message": f"Country {country} not clear. Is it any of the following?",
-        "options": fuzzy_countries,
+        "detail": fuzzy_countries,
     }
 
     if len(fuz_result) >= 1 and country in fuzzy_countries:
