@@ -22,6 +22,7 @@ OPENAI_API_KEY=yOur_OpenAi_ApI_kEy
 localhost:3000/?country=country&season=season
 
 # Improvements
+- Throttle
 - Persist Data of repeat requests to minimize OpenAI API Calls
 - Determine Seasons of a Country Programmatically instead of via AI
 - Prompt Improvement and Token Minimization
