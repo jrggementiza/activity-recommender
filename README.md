@@ -1,6 +1,17 @@
 # Overview
 AI Powered Activity Recommender based on a given Country and it's Season. Built w/ FastAPI + OpenAI.
 
+# Table of Contents
+1. [Setup](#setup)
+2. [Usage](#usage)
+3. [Demo](#demo)
+- [Happy Path](#happy-path)
+- [Wrong Season](#wrong-season)
+- [No Query Params](#no-query-params)
+- [OpenAI API Issue](#openai-api-issue)
+4. [Limitations](#limitations)
+5. [Improvements](#improvements)
+
 # Setup
 1. Clone the repo
 ```
@@ -28,16 +39,16 @@ localhost:3000/?country=country&season=season
 
 
 # Demo
-**Happy Path**
+## Happy Path
 ![Somewhat Happy Path](./demo/happy_path.png)
 
-**Wrong Season**
+## Wrong Season
 ![Wrong Season](./demo/wrong_season.png)
 
-**No Query Params**
+## No Query Params
 ![Query Params Required](./demo/query_params_required.png)
 
-**OpenAI API Issue**
+## OpenAI API Issue
 ![OpenAI API Issue](./demo/openai_api_issue.png)
 
 # Limitations
@@ -52,3 +63,6 @@ localhost:3000/?country=country&season=season
 - Prompt Improvement and Token Minimization
 - Throttle
 - Persist Data of repeat requests to minimize OpenAI API Calls
+
+---
+[Back To Top](#table-of-contents)
