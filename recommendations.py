@@ -5,26 +5,24 @@ def get_recommendations(country: str, season: str):
     recommendations_list = []
     error_message = {}
 
-    prompt = f"""
-        Provide recommended activities you can do in {country} during the {season} season.
-        Format recommendations so that it is just sentences seperated by a comma
-        Important:
-        1. Clean up the recommendations for each season in {country} to ensure they align with the appropriate season.
-        Remove any recommendations that don't make sense given the season. For example:
-        - Recommendations related to winter sports should be removed for tropical countries during the summer season.
-        - Recommendations for ice skating should be removed during the hot season.
-        - Recommendations for hot soups should be removed during the summer season.
-        - It doesn't make sense to go climbing during the rainy season.
-        - Ramen doesn't make sense during summer.
-        - Ice cream makes sense in the summer.
-        2. Make the recommendations actionable relative to the country. Example:
-        - Go to Siargao if in the Philippines
-        - Take a trip to Ximending if in Taiwan
-        - Visit Akihabara if in Japan
-    """
+    prompt = (
+        # Base Whispers
+        f"Give recommended activities you can do in {country} during the {season} season."
+        f"Ensure recommended activities are correct for {country}. Example: 'Go to Siargao, Coffee at Tagaytay, Bike ride in Nuvali' for the Philippines."
+        # Format Whispers
+        "Strictly follow this response format:"
+        "'visit gardens by the bay, flower viewing at national orchid garden, hiking at MacRitchie nature trail'"
+        "No need to prefix with a number, dashes, or '\n' in the response."
+        "Only answer in comma separated activities"
+        # Avoid Whispers
+        "Ensure recommended activities makes sense given the season provided."
+        "'Hot soup during summer' does not make sense"
+        "'Ice cream during winter' does not make sense"
+        "''Hiking during rainy' does not make sense"
+    )
 
     try:
-        response = generate_response_from_prompt(prompt, 100)
+        response = generate_response_from_prompt(prompt, 300)
         recommendations_list = response.split(", ")
     except Exception as e:
         error_message = {

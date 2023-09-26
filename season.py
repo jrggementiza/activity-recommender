@@ -6,14 +6,18 @@ def get_matching_seasons(country: str):
     error_message = {}
 
     prompt = (
+        # Base Whispers
         f"Generate the seasons of the country {country}. "
-        "Only state the season name. No need to state months covered. "
-        f"Make sure the seasons are correct for {country}. "
-        "Answer in the format of a string of words separated by a comma."
+        f"Make sure the seasons are correct for {country}."
+        # Format Whispers
+        "No need to mention dates covered."
+        "Only answer in comma separated single words."
+        # Sample Whispers
+        "Examples are 'dry, rainy' for tropical countries and 'Winter, Spring, Summer, Fall' temperate countries."
     )
 
     try:
-        seasons_response = generate_response_from_prompt(prompt)
+        seasons_response = generate_response_from_prompt(prompt, 200)
         seasons_list = [season.lower() for season in seasons_response.split(", ")]
     except Exception as e:
         error_message = {
