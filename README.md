@@ -28,10 +28,10 @@ localhost:3000/?country=country&season=season
 
 
 **Somewhat Happy Path**
-![./demo/somewhat_happy_path.gif]
+![Somewhat Happy Path](./demo/somewhat_happy_path.gif)
 
 **Unhappy Path**
-![./demo/unhappy_paths.gif]
+![Unhappy Path](./demo/unhappy_paths.gif)
 
 # Improvements
 - Determine Seasons of a Country Programmatically instead of via AI
