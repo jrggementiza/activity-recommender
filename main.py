@@ -29,10 +29,10 @@ async def activities(response: Response, country: str = "", season: str = ""):
 
     seasons_list, error_message = get_matching_seasons(matching_country)
     if error_message:
-        response.status_code = status.HTTP_424_FAILED_DEPENDENCY
+        response.status_code = status.HTTP_404_NOT_FOUND
         return error_message
 
-    if season not in seasons_list:
+    if season.title() not in seasons_list:
         response.status_code = status.HTTP_404_NOT_FOUND
         return {
             "message": f"Country {matching_country} has no season {season}. Please choose from the following.",
