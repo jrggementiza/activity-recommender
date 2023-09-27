@@ -17,14 +17,18 @@ def _get_latitude_of_country(country: str) -> float:
 
 
 def _get_seasons_of_country(latitude: float) -> List[str]:
+    POLAR_SEASONS = ["Long Winter", "Short Summer"]
+    TEMPERATE_SEASONS = ["Spring", "Summer", "Autumn", "Winter", "Fall"]
+    TROPICAL_SEASONS = ["Wet", "Dry", "Rainy", "Summer"]
+
     MIN_MAX_LATITUDE_SEASONS = [
-        (66.500000, 90.000000, ["Long Winter", "Short Summer"], "North Pole"),
-        (23.500000, 66.400000, ["Spring", "Summer", "Autumn", "Winter", "Fall"], "Northern Hemisphere"),
-        (0.100000, 23.400000, ["Wet", "Dry", "Rainy", "Summer"], "Tropic of Cancer"),
-        (0.000000, 0.000000, ["Wet", "Dry", "Rainy", "Summer"], "Equator"),
-        (-23.400000, -0.100000, ["Wet", "Dry", "Rainy", "Summer"], "Tropic of Capricorn"),
-        (-66.400000, -23.500000, ["Spring", "Summer", "Autumn", "Winter", "Fall"], "Southern Hemisphere"),
-        (-90.000000, -66.500000, ["Long Winter", "Short Summer"], "South Pole")
+        (66.500000, 90.000000, POLAR_SEASONS, "North Pole"),
+        (23.500000, 66.400000, TEMPERATE_SEASONS, "Northern Hemisphere"),
+        (0.100000, 23.400000, TROPICAL_SEASONS, "Tropic of Cancer"),
+        (0.000000, 0.000000, TROPICAL_SEASONS, "Equator"),
+        (-23.400000, -0.100000, TROPICAL_SEASONS, "Tropic of Capricorn"),
+        (-66.400000, -23.500000, TEMPERATE_SEASONS, "Southern Hemisphere"),
+        (-90.000000, -66.500000, POLAR_SEASONS, "South Pole")
     ]
     
     for min_lat, max_lat, seasons, _ in MIN_MAX_LATITUDE_SEASONS:
