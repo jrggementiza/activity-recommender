@@ -1,8 +1,19 @@
 from typing import List
 
+import pandas as pd
+
 
 def _get_latitude_of_country(country: str) -> float:
-    return
+    csv_file =  './data/coordinates.csv'
+    df = pd.read_csv(csv_file)
+
+    filtered_df = df[df['country'] == country.title()]
+
+    if not filtered_df.empty:
+        return filtered_df.iloc[0]['latitude']
+    else:
+        # Force an error further in the flow
+        return 99999
 
 
 def _get_seasons_of_country(latitude: float) -> List[str]:
@@ -17,6 +28,7 @@ def _get_seasons_of_country(latitude: float) -> List[str]:
     ]
     
     for min_lat, max_lat, seasons, _ in MIN_MAX_LATITUDE_SEASONS:
+        
         if min_lat <= latitude <= max_lat:
             return seasons
 
