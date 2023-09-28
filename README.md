@@ -39,8 +39,14 @@ localhost:3000/?country=country&season=season
 
 
 # Demo
-## Happy Path
-![Somewhat Happy Path](./demo/happy_path.png)
+
+## Happy Paths
+### Philippine Summer
+![Philippine Summer](./demo/happy_ph.png)
+### Taiwan Winter
+![Taiwan Winter](./demo/happy_tw.png)
+### South Korea Spring
+![South Korea Spring](./demo/happy_kr.png)
 
 ## Wrong Season
 ![Wrong Season](./demo/wrong_season.png)
@@ -53,14 +59,14 @@ localhost:3000/?country=country&season=season
 
 # Limitations
 - This is prone to hiccups and hallucinations as w/ any AI powered apps as opposed to a Programatic / ML Derived recommender.
-- An example to this is the recommendations might not make sense given the season at times.
+- ~~An example to this is the recommendations might not make sense given the season at times.~~
 - ~~Additionally, deriving seasons of a country via AI is not as idempotent as say determining a country's seasons based on if they are tropical, temperate, and so on.~~
 - Above issues can be mitigated by further fine tuning.
 
 
 # Improvements
 - :white_check_mark: ~~Determine Seasons of a Country Programmatically instead of via AI~~
-- Prompt Improvement and Token Minimization
+- :white_check_mark: ~~Prompt Improvement~~ and Token Minimization
 - Throttle
 - Persist Data of repeat requests to minimize OpenAI API Calls
 
