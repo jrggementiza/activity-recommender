@@ -7,18 +7,19 @@ def get_recommendations(country: str, season: str):
 
     prompt = (
         # Base Whispers
-        f"Give recommended activities you can do in {country} during the {season} season."
-        f"Ensure recommended activities are correct for {country}. Example: 'Go to Siargao, Coffee at Tagaytay, Bike ride in Nuvali' for the Philippines."
+        f"Give 5 recommended activities you can do in {country} during the {season} season."
+        f"Ensure the 5 recommended activities are correct for {country}."
         # Format Whispers
+        "Answer in comma separated activities"
         "Strictly follow this response format:"
-        "'visit gardens by the bay, flower viewing at national orchid garden, hiking at MacRitchie nature trail'"
-        "No need to prefix with a number, dashes, or '\n' in the response."
-        "Only answer in comma separated activities"
-        # Avoid Whispers
+        # Positive Examples
+        "visit gardens by the bay, flower viewing at national orchid garden, hiking at MacRitchie nature trail"
+        "Example: 'Go to Siargao, Coffee at Tagaytay, Bike ride in Nuvali' for the Philippines."
+        # Negative Examples
         "Ensure recommended activities makes sense given the season provided."
-        "'Hot soup during summer' does not make sense"
-        "'Ice cream during winter' does not make sense"
-        "''Hiking during rainy' does not make sense"
+        "Hot soup during summer does not make sense"
+        "Ice cream during winter does not make sense"
+        "Hiking during rainy does not make sense"
     )
 
     try:
